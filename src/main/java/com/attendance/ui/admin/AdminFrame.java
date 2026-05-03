@@ -24,28 +24,28 @@ public class AdminFrame extends JFrame {
 
         sidebar = new SidebarPanel("Attendance System", user.getFullName(), "ADMIN");
         sidebar.addSectionLabel("Main");
-        JButton dashBtn  = sidebar.addMenu("📊", "Dashboard",    "dashboard");
+        JButton dashBtn  = sidebar.addMenu("Dashboard",    "dashboard");
         sidebar.addSectionLabel("Academic");
-        JButton deptBtn  = sidebar.addMenu("🏢", "Departments",  "departments");
-        JButton courseBtn= sidebar.addMenu("📚", "Courses",      "courses");
-        JButton classBtn = sidebar.addMenu("🏫", "Classes",      "classes");
-        JButton csBtn    = sidebar.addMenu("🔗", "Assign Teachers","classsubjects");
+        JButton deptBtn  = sidebar.addMenu("Departments",  "departments");
+        JButton courseBtn= sidebar.addMenu("Courses",      "courses");
+        JButton classBtn = sidebar.addMenu("Classes",      "classes");
+        JButton csBtn    = sidebar.addMenu("Assign Teachers","classsubjects");
         sidebar.addSectionLabel("People");
-        JButton studBtn  = sidebar.addMenu("👨‍🎓", "Students",    "students");
-        JButton teachBtn = sidebar.addMenu("👩‍🏫", "Teachers",    "teachers");
-        JButton enrollBtn= sidebar.addMenu("📋", "Enrollments",  "enrollments");
+        JButton studBtn  = sidebar.addMenu("Students",    "students");
+        JButton teachBtn = sidebar.addMenu("Teachers",    "teachers");
+        JButton enrollBtn= sidebar.addMenu("Enrollments",  "enrollments");
         sidebar.addSectionLabel("Reports");
-        JButton repBtn   = sidebar.addMenu("📈", "Attendance Reports","reports");
+        JButton repBtn   = sidebar.addMenu("Attendance Reports","reports");
         sidebar.addSectionLabel("System");
-        JButton cfgBtn   = sidebar.addMenu("⚙️", "Configuration", "config");
-        JButton pwBtn    = sidebar.addMenu("🔑", "Change Password","changepw");
-        JButton logoutBtn= sidebar.addMenu("🚪", "Logout",       "logout");
+        JButton cfgBtn   = sidebar.addMenu("Configuration", "config");
+        JButton pwBtn    = sidebar.addMenu("Change Password","changepw");
+        JButton logoutBtn= sidebar.addMenu("Logout",       "logout");
 
         cardLayout = new CardLayout();
         contentPanel = new JPanel(cardLayout);
         contentPanel.setBackground(UIUtil.BG);
 
-        contentPanel.add(new AdminDashboardPanel(), "dashboard");
+        contentPanel.add(new AdminDashboardPanel(user), "dashboard");
         contentPanel.add(new DepartmentPanel(),     "departments");
         contentPanel.add(new CoursePanel(),         "courses");
         contentPanel.add(new ClassPanel(),          "classes");

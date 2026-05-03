@@ -46,10 +46,7 @@ public class SystemConfigPanel extends JPanel {
         // ---- Email Settings card ----
         content.add(buildEmailCard());
 
-        JScrollPane scroll = new JScrollPane(content);
-        scroll.setBorder(null);
-        scroll.getViewport().setOpaque(false);
-        scroll.setOpaque(false);
+        JScrollPane scroll = UIUtil.fastScrollPane(content, UIUtil.BG);
         add(scroll, BorderLayout.CENTER);
 
         loadConfig();

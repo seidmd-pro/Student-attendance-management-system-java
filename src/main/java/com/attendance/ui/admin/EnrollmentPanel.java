@@ -344,8 +344,8 @@ public class EnrollmentPanel extends JPanel {
         searchRow.setOpaque(false);
         searchRow.setBorder(new EmptyBorder(4, 6, 4, 6));
 
-        JLabel searchIcon = new JLabel("🔍");
-        searchIcon.setFont(new Font("Segoe UI Emoji", Font.PLAIN, 13));
+        JLabel searchIcon = new JLabel("S");
+        searchIcon.setFont(new Font("Segoe UI", Font.BOLD, 13));
         searchIcon.setBorder(new EmptyBorder(0, 0, 0, 4));
 
         JButton clearBtn = new JButton("✕");

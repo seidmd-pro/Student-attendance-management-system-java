@@ -44,11 +44,24 @@ public class AdminReportPanel extends JPanel {
     public AdminReportPanel() {
         setLayout(new BorderLayout(0, 0));
         setBackground(UIUtil.BG);
-        setBorder(new EmptyBorder(20, 24, 20, 24));
+        setBorder(new EmptyBorder(24, 28, 24, 28));
 
+        // ── Header ──
+        JPanel headerRow = new JPanel(new BorderLayout());
+        headerRow.setOpaque(false);
+        headerRow.setBorder(new EmptyBorder(0, 0, 18, 0));
         JLabel title = UIUtil.headerLabel("Attendance Reports");
-        title.setBorder(new EmptyBorder(0, 0, 14, 0));
-        add(title, BorderLayout.NORTH);
+        JLabel subtitle = new JLabel("Generate and export attendance summaries");
+        subtitle.setFont(UIUtil.FONT_BODY);
+        subtitle.setForeground(UIUtil.TEXT_SECONDARY);
+        JPanel headerText = new JPanel();
+        headerText.setLayout(new BoxLayout(headerText, BoxLayout.Y_AXIS));
+        headerText.setOpaque(false);
+        headerText.add(title);
+        headerText.add(Box.createVerticalStrut(2));
+        headerText.add(subtitle);
+        headerRow.add(headerText, BorderLayout.WEST);
+        add(headerRow, BorderLayout.NORTH);
 
         // ---- Table (created first so exportBtn can reference it) ----
         String[] cols = {"Student Name", "Student Code", "Total Sessions", "Present", "Absent", "Late", "Percentage %"};
@@ -84,6 +97,11 @@ public class AdminReportPanel extends JPanel {
         });
 
         // ---- Filter panel (two rows) ----
+        JPanel filterCard = UIUtil.card(null);
+        filterCard.setBorder(BorderFactory.createCompoundBorder(
+            new UIUtil.RoundedBorder(UIUtil.BORDER_COLOR, 1, 10),
+            new EmptyBorder(12, 16, 12, 16)));
+
         JPanel filterPanel = new JPanel();
         filterPanel.setLayout(new BoxLayout(filterPanel, BoxLayout.Y_AXIS));
         filterPanel.setOpaque(false);
@@ -146,6 +164,8 @@ public class AdminReportPanel extends JPanel {
         filterPanel.add(row1);
         filterPanel.add(row2);
 
+        filterCard.add(filterPanel, BorderLayout.CENTER);
+
         // ---- Summary label ----
         summaryLabel = new JLabel(" ");
         summaryLabel.setFont(UIUtil.FONT_SMALL);
@@ -153,9 +173,9 @@ public class AdminReportPanel extends JPanel {
         summaryLabel.setBorder(new EmptyBorder(6, 0, 0, 0));
 
         // ---- Layout ----
-        JPanel center = new JPanel(new BorderLayout(0, 4));
+        JPanel center = new JPanel(new BorderLayout(0, 10));
         center.setOpaque(false);
-        center.add(filterPanel, BorderLayout.NORTH);
+        center.add(filterCard, BorderLayout.NORTH);
         center.add(UIUtil.scrollPane(reportTable), BorderLayout.CENTER);
         center.add(summaryLabel, BorderLayout.SOUTH);
         add(center, BorderLayout.CENTER);
