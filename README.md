@@ -167,3 +167,12 @@ src/
 ## License
 
 This project is developed for academic purposes.
+
+**Team Members:**
+
+| Name | ID |
+|---|---|
+| Seada Hussen | 1692/16 |
+| Seid Mohammed | 1714/16 |
+| Seid Dereje | 1707/16 |
+| Nefisa Hussen | 4332/16 |
